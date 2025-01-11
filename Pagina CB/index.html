@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carpintería Baldovinos, especialistas en muebles personalizados y restauración en San Antonio Buenavista, México.">
+    <title>Carpintería Baldovinos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', Arial, sans-serif;
+        }
+
+        :root {
+            --color-primary: #000000;
+            --color-secondary: #d2d0d0;
+            --color-accent: #4b4948;
+            --color-text: #000000;
+            --color-light: #aaa9a9;
+            --color-white: #DCDCDC;
+            --color-overlay: rgba(35, 21, 16, 0.8);
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            background-color: var(--color-accent);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(35, 21, 16, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family:'Times New Roman', cursive, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--color-white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: 300;
+            transition: color 0.3s ease;
+            letter-spacing: 3px;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-light);
+        }
+
+        .hero {
+            height: 100vh;
+            background-color: var(--color-light);
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bayoreh', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .hero-text p {
+            font-family: 'Arial', serif;
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 300;
+            color: var(--color-text);
+            margin-bottom: 2rem;
+            text-align: center;
+            
+        }
+
+        .servicios {
+            padding: 8rem 4rem;
+            background-color: var(--color-white);
+        }
+
+        .servicios-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .servicio-card {
+            position: relative;
+            height: 400px;
+            background-color: var(--color-light);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .servicio-card img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+        .servicio-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+        
+        .servicio-info h3 {
+            font-family: 'Tahoma', serif;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+         }
+
+        .servicio-info p {
+           font-family: 'Playfair Display', serif;
+           font-weight: 400;
+           line-height: 1.6;
+         }
+
+        .contact {
+            padding: 8rem 4rem;
+            background-color: var(--color-light);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            background-color: var(--color-white);
+            border-radius: 3px;
+            box-shadow: 0 4px 20px rgba(35, 21, 16, 0.1);
+        }
+
+       .contact-card h3 {
+           font-family: 'Times New Roman', serif;
+           color: var(--color-primary);
+           margin-bottom: 1rem;
+           font-weight: 600;
+           letter-spacing: -0.5px;
+           }
+
+       .contact-card p {
+           font-family: 'Playfair Display', serif;
+           color: var(--color-text);
+           line-height: 1.6;
+           font-weight: 300;
+           }
+        .contact-gallery-img {
+           width: 100%;
+           height: 100px; /* Ajusta la altura según necesites */
+           object-fit: cover;
+           border-radius: 4px;
+           margin: 10px 0;
+           transition: transform 0.3s ease;
+           }
+ 
+        .contact-gallery-img:hover {
+           transform: scale(1.05);
+           }
+
+        .contact-card a {
+           display: block;
+           text-decoration: none;
+           }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #4b4948; /* Color inicial */
+            color: var(--color-white);
+            font-family: 'Georgia', serif;
+            text-decoration: none;
+            border-radius: 2px;
+            margin-top: 2rem;
+            transition: background-color 0.3s ease;
+            font-weight: 300;
+            letter-spacing: 1px;
+            }
+
+       .btn:hover {
+           background-color: #000000; /* Cambiar a negro */
+            }
+
+
+        footer {
+            padding: 4rem;
+            background-color: #4b4948;
+            color: var(--color-white);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">CARPINTERÍA BALDOVINOS</div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Transformamos madera en arte para tu hogar</h1>
+                <p>Más de 20 años creando ideas en obras de arte, fusionando creatividad y experiencia en cada proyecto.</p>
+                <a href="#contacto" class="btn">Solicitar presupuesto</a>
+            </div>
+            <div class="hero-image">
+                <img src="IMG-20240406-WA0059.jpg" alt="Taller Carpintería Baldovinos" />
+            </div>
+        </div>
+    </section>
+
+    <section class="servicios" id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <img src="Principal.jpg" alt="Muebles a medida" />
+                <div class="servicio-info">
+                    <h3>Diseño y fabricación</h3>
+                    <p>Muebles a medida (Hogar y Comercial).
+                     Puertas, Ventanas, Escaleras.<p>
+                     <p>Cocinas integrales, Closets, Vestidores, etc.</p>
+                </div>
+            </div>
+            <div class="servicio-card">
+                <img src="Restauracion.jpg" alt="Restauración" />
+                <div class="servicio-info">
+                    <h3>Reparación y Mantenimiento</h3>
+                    <p>Restauración y ajuste de muebles.</p>
+                    <p>Barnizado, pulido y mantenimiento de pisos y acabados.<p>
+                </div>
+            </div>
+            <div class="servicio-card">
+                <img src="Panel.jpg" alt="Instalaciones" />
+                <div class="servicio-info">
+                    <h3>Acabados y detalles en madera</h3>
+                    <p>Revestimientos, molduras, paneles decorativos y trabajos especiales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Ubicación</h3>
+                    <a href="https://maps.app.goo.gl/q5QdZFXvVanUxkCz9"target="_blank">
+                    <img src="images.jpeg"  class="contact-gallery-img"></a>
+                </div>
+                <div class="contact-card">
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/5217222887384" target="_blank">
+                    <img src="descarga.jpg" alt="Galería de trabajos" class="contact-gallery-img"></a>
+                </div>
+                <div class="contact-card">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://linktr.ee/Carpinteria_Baldovinos"target="_blank">
+                    <img src="redes.avif" alt="a" class="contact-gallery-img"></a>
+                </div>
+               <div class="contact-card">
+                    <h3>Galeria de Nuestros Trabajos Realizados</h3>
+                    <a href="https:/www.behance.net/carpintbaldovi"target="_blank">
+                    <img src="be.jpg" alt="a" class="contact-gallery-img"></a>                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© Carpintería Baldovinos - Calidad y compromiso en cada proyecto.</p>
+    </footer>
+</body>
+</html>
